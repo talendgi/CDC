@@ -384,56 +384,8 @@ except KeyboardInterrupt:
 
 ---
 
-## 🔁 Auto Restart
-
-```python
-while True:
-    try:
-        run()
-```
-
-👉 If crash:
-
-```text
-Wait 5 sec → restart
-```
-
----
-
 # 🔥 End-to-End Flow
 
----
-
-## 🧪 Example
-
-### You run:
-
-```bash
-python cdc_pipeline.py
-```
-
----
-
-### Then MySQL:
-
-```sql
-INSERT INTO customers VALUES (1, 'John');
-```
-
----
-
-## Internally:
-
-1. MySQL writes to binlog
-2. `BinLogStreamReader` reads it
-3. Event detected → `WriteRowsEvent`
-4. `process_event()` formats it
-5. `send_to_sink()` outputs it
-6. Offset saved
-
----
-
-# ⚡ Key Concepts You Just Implemented
 
 ---
 
@@ -465,34 +417,3 @@ Checkpoint system for recovery
 Everything reacts to events
 ```
 
----
-
-# 🎯 Why This Is Powerful
-
-You just built:
-
-```text
-A mini Kafka-like CDC system — in pure Python
-```
-
----
-
-# 🚀 What You Can Add Next
-
-If you want to go advanced:
-
-* Kafka integration (later)
-* FastAPI ingestion
-* Redis queue
-* Delta Lake
-* Vector DB (RAG auto update)
-
----
-
-# 👉 If You Want Next
-
-Say:
-
-👉 **“add fastapi consumer + dashboard”**
-
-and I’ll turn this into a full real-time system 🔥
